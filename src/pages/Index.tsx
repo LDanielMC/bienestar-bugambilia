@@ -1,13 +1,41 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useEffect } from "react";
+import Header from "@/components/Header";
+import HeroSection from "@/components/HeroSection";
+import TreatmentSection from "@/components/TreatmentSection";
+import FacilitiesSection from "@/components/FacilitiesSection";
+import ContactSection from "@/components/ContactSection";
+import Footer from "@/components/Footer";
 
 const Index = () => {
+  useEffect(() => {
+    // Update document title and meta tags for SEO
+    document.title = "Clínica de Bienestar en Cuernavaca | Clínica Bugambilia Cuernavaca";
+    
+    // Update meta description
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute(
+        "content",
+        "Centro residencial en Cuernavaca para recuperar el bienestar integral mediante tratamientos humanistas personalizados. Atención 24/7."
+      );
+    } else {
+      const meta = document.createElement("meta");
+      meta.name = "description";
+      meta.content =
+        "Centro residencial en Cuernavaca para recuperar el bienestar integral mediante tratamientos humanistas personalizados. Atención 24/7.";
+      document.head.appendChild(meta);
+    }
+  }, []);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <main className="min-h-screen">
+      <Header />
+      <HeroSection />
+      <TreatmentSection />
+      <FacilitiesSection />
+      <ContactSection />
+      <Footer />
+    </main>
   );
 };
 

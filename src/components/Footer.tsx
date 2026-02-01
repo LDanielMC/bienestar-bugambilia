@@ -1,0 +1,139 @@
+import { MessageCircle, Phone, Facebook, Instagram } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
+  return (
+    <footer className="bg-foreground text-background">
+      {/* CTA Banner */}
+      <div className="bg-primary py-12 px-4">
+        <div className="container-narrow mx-auto text-center">
+          <h3 className="font-display text-2xl md:text-3xl font-bold text-primary-foreground mb-4">
+            ¿Listo para dar el primer paso hacia el bienestar?
+          </h3>
+          <p className="text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
+            Nuestro equipo está listo para ayudarte. Contáctanos ahora para una
+            evaluación confidencial y gratuita.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button variant="hero" size="lg" asChild>
+              <a
+                href="https://wa.me/527773254124"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <MessageCircle className="w-5 h-5" />
+                WhatsApp 24/7
+              </a>
+            </Button>
+            <Button
+              variant="outline"
+              size="lg"
+              asChild
+              className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
+            >
+              <a href="tel:+527773254124">
+                <Phone className="w-5 h-5" />
+                +52 777 325 4124
+              </a>
+            </Button>
+          </div>
+        </div>
+      </div>
+
+      {/* Footer Content */}
+      <div className="py-12 px-4">
+        <div className="container-narrow mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 mb-8">
+            {/* Brand */}
+            <div>
+              <h4 className="font-display text-xl font-bold mb-4">
+                Clínica Bugambilia Cuernavaca
+              </h4>
+              <p className="text-background/70 text-sm leading-relaxed">
+                Centro residencial de bienestar en Cuernavaca, Morelos.
+                Tratamientos humanistas personalizados para recuperar una vida
+                en armonía. Atención confidencial 24/7.
+              </p>
+            </div>
+
+            {/* Quick Links */}
+            <div>
+              <h5 className="font-semibold mb-4">Enlaces rápidos</h5>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <a
+                    href="#tratamiento"
+                    className="text-background/70 hover:text-background transition-colors"
+                  >
+                    Nuestro Tratamiento
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#instalaciones"
+                    className="text-background/70 hover:text-background transition-colors"
+                  >
+                    Instalaciones
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#contacto"
+                    className="text-background/70 hover:text-background transition-colors"
+                  >
+                    Contacto
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="text-background/70 hover:text-background transition-colors"
+                  >
+                    Aviso de Privacidad
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Contact & Social */}
+            <div>
+              <h5 className="font-semibold mb-4">Síguenos</h5>
+              <div className="flex gap-4 mb-6">
+                <a
+                  href="#"
+                  className="w-10 h-10 bg-background/10 hover:bg-background/20 rounded-full flex items-center justify-center transition-colors"
+                  aria-label="Facebook"
+                >
+                  <Facebook className="w-5 h-5" />
+                </a>
+                <a
+                  href="#"
+                  className="w-10 h-10 bg-background/10 hover:bg-background/20 rounded-full flex items-center justify-center transition-colors"
+                  aria-label="Instagram"
+                >
+                  <Instagram className="w-5 h-5" />
+                </a>
+              </div>
+              <p className="text-sm text-background/70">
+                Cuernavaca, Morelos, México
+              </p>
+              <p className="text-sm text-background/70">+52 777 325 4124</p>
+            </div>
+          </div>
+
+          {/* Copyright */}
+          <div className="border-t border-background/10 pt-8 text-center text-sm text-background/60">
+            <p>
+              © {currentYear} Clínica Bugambilia Cuernavaca. Todos los derechos
+              reservados.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
