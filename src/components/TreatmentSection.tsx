@@ -1,82 +1,83 @@
-import { Brain, Users, Sun, Apple } from "lucide-react";
+import { 
+  Heart, 
+  Users, 
+  Brain, 
+  Shield, 
+  Calendar, 
+  User, 
+  Footprints,
+  Activity,
+  Stethoscope,
+  ClipboardCheck,
+  TestTube,
+  Clock,
+  Home,
+  Waves,
+  Church,
+  Target
+} from "lucide-react";
 
-const treatments = [
-  {
-    icon: Brain,
-    title: "Terapia Psicológica",
-    description:
-      "Sesiones individuales y grupales con profesionales especializados para abordar desafíos emocionales.",
-  },
-  {
-    icon: Users,
-    title: "Apoyo Familiar",
-    description:
-      "Programas integrales que involucran a la familia en el proceso de recuperación y bienestar.",
-  },
-  {
-    icon: Sun,
-    title: "Actividades al Aire Libre",
-    description:
-      "Ejercicio, relajación y actividades recreativas en nuestros amplios jardines y áreas verdes.",
-  },
-  {
-    icon: Apple,
-    title: "Nutrición Equilibrada",
-    description:
-      "Plan alimenticio personalizado diseñado por nutriólogos para restaurar tu salud física.",
-  },
+const treatmentFeatures = [
+  { icon: Heart, text: "Trato humano" },
+  { icon: Brain, text: "Interdisciplinario (especialistas en salud mental y desafíos emocionales)" },
+  { icon: Activity, text: "20 sesiones de Estimulación Magnética Pulsada (EMTr)" },
+  { icon: Shield, text: "Zona residencial con seguridad privada" },
+  { icon: Users, text: "12 Terapias grupales por semana" },
+  { icon: User, text: "1 Terapia individual por semana" },
+  { icon: Footprints, text: "Programa de apoyo en 12 pasos para el bienestar personal (lunes a sábados)" },
+  { icon: Home, text: "1 Terapia familiar por semana" },
+  { icon: Target, text: "Actividad física" },
+  { icon: Stethoscope, text: "1 Valoración médica semanal" },
+  { icon: ClipboardCheck, text: "1 Valoración psiquiátrica al ingreso" },
+  { icon: TestTube, text: "Pruebas de laboratorio de tres elementos al ingreso" },
+  { icon: Clock, text: "Enfermería 24/7" },
+  { icon: Calendar, text: "Capacidad para 18 usuarios" },
+  { icon: Waves, text: "Alberca, jardines, capilla" },
+  { icon: Church, text: "Cancha de usos múltiples" },
+  { icon: Shield, text: "Habitaciones con baño privado" },
 ];
 
 const TreatmentSection = () => {
   return (
-    <section id="tratamiento" className="section-padding bg-muted/30">
+    <section id="tratamiento" className="section-padding bg-background">
       <div className="container-narrow mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
           <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">
-            Nuestro Enfoque
+            Lo que incluye nuestro tratamiento
           </span>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-navy mb-6">
             Tratamiento integral y humanista
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Ofrecemos programas residenciales personalizados para ayudar a personas que
             enfrentan afecciones por el consumo de elementos nocivos o desafíos emocionales.
-            Nuestro enfoque incluye nutrición, ejercicio, terapias individuales y grupales,
-            relajación y actividades recreativas para lograr una recuperación exitosa y duradera.
+            Nuestro enfoque integral garantiza una recuperación exitosa y duradera.
           </p>
-          <div className="mt-6 inline-flex items-center gap-2 bg-secondary rounded-full px-6 py-3">
-            <span className="text-secondary-foreground font-semibold">
-              Duración mínima recomendada: 35 días
-            </span>
-          </div>
         </div>
 
-        {/* Treatment Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-          {treatments.map((treatment, index) => (
+        {/* Treatment Features Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+          {treatmentFeatures.map((feature, index) => (
             <div
               key={index}
-              className="group bg-card rounded-2xl p-8 shadow-soft card-hover border border-border/50"
+              className="flex items-start gap-4 bg-card rounded-xl p-5 border border-border/50 shadow-soft hover:shadow-card transition-all duration-300"
             >
-              <div className="w-14 h-14 bg-secondary rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
-                <treatment.icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors" />
+              <div className="w-10 h-10 bg-accent/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                <feature.icon className="w-5 h-5 text-accent" />
               </div>
-              <h3 className="font-display text-xl font-semibold text-foreground mb-3">
-                {treatment.title}
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                {treatment.description}
-              </p>
+              <span className="text-navy font-medium leading-relaxed">
+                {feature.text}
+              </span>
             </div>
           ))}
         </div>
 
-        {/* Additional Info */}
-        <div className="mt-16 bg-primary/5 rounded-3xl p-8 md:p-12 border border-primary/10">
+        {/* Additional Info Card */}
+        <div className="mt-16 bg-gradient-to-br from-primary/5 to-accent/5 rounded-3xl p-8 md:p-12 border border-primary/10">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
-              <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-4">
+              <h3 className="font-display text-2xl md:text-3xl font-bold text-navy mb-4">
                 Un camino hacia la vida en armonía
               </h3>
               <p className="text-muted-foreground leading-relaxed mb-6">
@@ -88,12 +89,13 @@ const TreatmentSection = () => {
                 {[
                   "Evaluación inicial personalizada",
                   "Plan de tratamiento individualizado",
+                  "Grupos de apoyo mutuo",
                   "Seguimiento post-tratamiento",
                   "Confidencialidad garantizada",
                 ].map((item, index) => (
                   <li key={index} className="flex items-center gap-3">
                     <div className="w-2 h-2 bg-primary rounded-full" />
-                    <span className="text-foreground">{item}</span>
+                    <span className="text-navy">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -102,8 +104,8 @@ const TreatmentSection = () => {
               {[
                 { value: "100%", label: "Confidencial" },
                 { value: "24/7", label: "Supervisión" },
-                { value: "35+", label: "Días de programa" },
-                { value: "∞", label: "Apoyo continuo" },
+                { value: "35", label: "Días de programa" },
+                { value: "18", label: "Usuarios máx." },
               ].map((stat, index) => (
                 <div
                   key={index}
