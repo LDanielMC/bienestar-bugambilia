@@ -25,27 +25,40 @@ const Header = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
           ? "bg-card/95 backdrop-blur-md shadow-soft py-2"
-          : "bg-transparent py-4"
+          : "bg-white/90 backdrop-blur-sm py-3"
       }`}
     >
       <div className="container-narrow mx-auto px-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a href="#" className="flex flex-col">
-            <span
-              className={`font-display text-xl md:text-2xl font-bold transition-colors ${
-                isScrolled ? "text-primary" : "text-white"
-              }`}
-            >
-              Clínica Bugambilia
-            </span>
-            <span
-              className={`text-xs md:text-sm transition-colors ${
-                isScrolled ? "text-muted-foreground" : "text-white/80"
-              }`}
-            >
-              Centro de Bienestar en Cuernavaca, Morelos
-            </span>
+          <a href="#" className="flex items-center gap-3">
+            {/* Bugambilia Flower Icon */}
+            <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center">
+              <svg viewBox="0 0 100 100" className="w-full h-full">
+                <defs>
+                  <radialGradient id="flowerGradient" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stopColor="hsl(337, 76%, 60%)" />
+                    <stop offset="100%" stopColor="hsl(337, 76%, 47%)" />
+                  </radialGradient>
+                </defs>
+                {/* Petals */}
+                <ellipse cx="50" cy="25" rx="15" ry="22" fill="url(#flowerGradient)" />
+                <ellipse cx="50" cy="25" rx="15" ry="22" fill="url(#flowerGradient)" transform="rotate(72, 50, 50)" />
+                <ellipse cx="50" cy="25" rx="15" ry="22" fill="url(#flowerGradient)" transform="rotate(144, 50, 50)" />
+                <ellipse cx="50" cy="25" rx="15" ry="22" fill="url(#flowerGradient)" transform="rotate(216, 50, 50)" />
+                <ellipse cx="50" cy="25" rx="15" ry="22" fill="url(#flowerGradient)" transform="rotate(288, 50, 50)" />
+                {/* Center */}
+                <circle cx="50" cy="50" r="8" fill="hsl(45, 90%, 55%)" />
+              </svg>
+            </div>
+            <div className="flex flex-col">
+              <span className="font-display text-lg md:text-xl font-bold text-navy">
+                Clínica Bugambilia
+              </span>
+              <span className="text-xs md:text-sm text-muted-foreground">
+                Clínica de Rehabilitación en Cuernavaca, Morelos
+              </span>
+            </div>
           </a>
 
           {/* Desktop Navigation */}
@@ -54,9 +67,7 @@ const Header = () => {
               <a
                 key={link.href}
                 href={link.href}
-                className={`font-medium transition-colors hover:text-primary ${
-                  isScrolled ? "text-foreground" : "text-white"
-                }`}
+                className="font-medium text-navy transition-colors hover:text-primary"
               >
                 {link.label}
               </a>
@@ -94,9 +105,7 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`lg:hidden p-2 transition-colors ${
-              isScrolled ? "text-foreground" : "text-white"
-            }`}
+            className="lg:hidden p-2 text-navy transition-colors"
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -112,9 +121,7 @@ const Header = () => {
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`font-medium transition-colors ${
-                    isScrolled ? "text-foreground" : "text-white"
-                  }`}
+                  className="font-medium text-navy"
                 >
                   {link.label}
                 </a>

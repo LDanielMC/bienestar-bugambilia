@@ -5,7 +5,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-foreground text-background">
+    <footer className="bg-navy text-white">
       {/* CTA Banner */}
       <div className="bg-primary py-12 px-4">
         <div className="container-narrow mx-auto text-center">
@@ -17,7 +17,11 @@ const Footer = () => {
             evaluación confidencial y gratuita.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="hero" size="lg" asChild>
+            <Button 
+              size="lg" 
+              asChild
+              className="bg-white text-primary hover:bg-white/90 font-bold"
+            >
               <a
                 href="https://wa.me/527773254124"
                 target="_blank"
@@ -45,17 +49,53 @@ const Footer = () => {
       {/* Footer Content */}
       <div className="py-12 px-4">
         <div className="container-narrow mx-auto">
-          <div className="grid md:grid-cols-3 gap-8 mb-8">
+          <div className="grid md:grid-cols-4 gap-8 mb-8">
             {/* Brand */}
-            <div>
-              <h4 className="font-display text-xl font-bold mb-4">
-                Clínica Bugambilia Cuernavaca
-              </h4>
-              <p className="text-background/70 text-sm leading-relaxed">
+            <div className="md:col-span-2">
+              <div className="flex items-center gap-3 mb-4">
+                {/* Bugambilia Flower */}
+                <div className="w-10 h-10">
+                  <svg viewBox="0 0 100 100" className="w-full h-full">
+                    <defs>
+                      <radialGradient id="footerFlowerGradient" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" stopColor="hsl(337, 76%, 70%)" />
+                        <stop offset="100%" stopColor="hsl(337, 76%, 55%)" />
+                      </radialGradient>
+                    </defs>
+                    <ellipse cx="50" cy="25" rx="15" ry="22" fill="url(#footerFlowerGradient)" />
+                    <ellipse cx="50" cy="25" rx="15" ry="22" fill="url(#footerFlowerGradient)" transform="rotate(72, 50, 50)" />
+                    <ellipse cx="50" cy="25" rx="15" ry="22" fill="url(#footerFlowerGradient)" transform="rotate(144, 50, 50)" />
+                    <ellipse cx="50" cy="25" rx="15" ry="22" fill="url(#footerFlowerGradient)" transform="rotate(216, 50, 50)" />
+                    <ellipse cx="50" cy="25" rx="15" ry="22" fill="url(#footerFlowerGradient)" transform="rotate(288, 50, 50)" />
+                    <circle cx="50" cy="50" r="8" fill="hsl(45, 90%, 65%)" />
+                  </svg>
+                </div>
+                <h4 className="font-display text-xl font-bold">
+                  Clínica Bugambilia Cuernavaca
+                </h4>
+              </div>
+              <p className="text-white/70 text-sm leading-relaxed mb-6">
                 Centro residencial de bienestar en Cuernavaca, Morelos.
                 Tratamientos humanistas personalizados para recuperar una vida
                 en armonía. Atención confidencial 24/7.
               </p>
+              
+              {/* Certifications */}
+              <div className="flex flex-wrap gap-4">
+                {[
+                  "SMSM",
+                  "AMESAD",
+                  "Consejo Popular de Salud Mental",
+                  "Manos Enlazadas",
+                ].map((cert, index) => (
+                  <div 
+                    key={index}
+                    className="bg-white/10 rounded-lg px-3 py-2 text-xs text-white/80"
+                  >
+                    {cert}
+                  </div>
+                ))}
+              </div>
             </div>
 
             {/* Quick Links */}
@@ -65,7 +105,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="#tratamiento"
-                    className="text-background/70 hover:text-background transition-colors"
+                    className="text-white/70 hover:text-white transition-colors"
                   >
                     Nuestro Tratamiento
                   </a>
@@ -73,7 +113,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="#instalaciones"
-                    className="text-background/70 hover:text-background transition-colors"
+                    className="text-white/70 hover:text-white transition-colors"
                   >
                     Instalaciones
                   </a>
@@ -81,7 +121,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="#contacto"
-                    className="text-background/70 hover:text-background transition-colors"
+                    className="text-white/70 hover:text-white transition-colors"
                   >
                     Contacto
                   </a>
@@ -89,7 +129,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="#"
-                    className="text-background/70 hover:text-background transition-colors"
+                    className="text-white/70 hover:text-white transition-colors"
                   >
                     Aviso de Privacidad
                   </a>
@@ -103,28 +143,28 @@ const Footer = () => {
               <div className="flex gap-4 mb-6">
                 <a
                   href="#"
-                  className="w-10 h-10 bg-background/10 hover:bg-background/20 rounded-full flex items-center justify-center transition-colors"
+                  className="w-10 h-10 bg-white/10 hover:bg-primary rounded-full flex items-center justify-center transition-colors"
                   aria-label="Facebook"
                 >
                   <Facebook className="w-5 h-5" />
                 </a>
                 <a
                   href="#"
-                  className="w-10 h-10 bg-background/10 hover:bg-background/20 rounded-full flex items-center justify-center transition-colors"
+                  className="w-10 h-10 bg-white/10 hover:bg-primary rounded-full flex items-center justify-center transition-colors"
                   aria-label="Instagram"
                 >
                   <Instagram className="w-5 h-5" />
                 </a>
               </div>
-              <p className="text-sm text-background/70">
+              <p className="text-sm text-white/70">
                 Cuernavaca, Morelos, México
               </p>
-              <p className="text-sm text-background/70">+52 777 325 4124</p>
+              <p className="text-sm text-white/70">+52 777 325 4124</p>
             </div>
           </div>
 
           {/* Copyright */}
-          <div className="border-t border-background/10 pt-8 text-center text-sm text-background/60">
+          <div className="border-t border-white/10 pt-8 text-center text-sm text-white/60">
             <p>
               © {currentYear} Clínica Bugambilia Cuernavaca. Todos los derechos
               reservados.

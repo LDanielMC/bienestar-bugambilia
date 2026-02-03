@@ -13,29 +13,29 @@ const facilities = [
     description: "Espacio de relajación y ejercicio acuático",
   },
   {
-    image: facilityGym,
-    title: "Gimnasio",
-    description: "Equipamiento moderno para actividad física",
-  },
-  {
-    image: facilityRoom,
-    title: "Habitaciones",
-    description: "Espacios cómodos y acogedores",
-  },
-  {
     image: facilityGarden,
     title: "Jardines",
     description: "Amplias áreas verdes para meditación",
   },
   {
-    image: facilityDining,
-    title: "Comedor",
-    description: "Alimentación nutritiva y balanceada",
+    image: facilityRoom,
+    title: "Habitaciones con baño privado",
+    description: "Espacios cómodos y acogedores",
   },
   {
     image: facilityTherapy,
-    title: "Salas de Terapia",
-    description: "Espacios diseñados para tu bienestar",
+    title: "Capilla",
+    description: "Espacio de reflexión espiritual",
+  },
+  {
+    image: facilityGym,
+    title: "Cancha de usos múltiples",
+    description: "Actividad física y recreación",
+  },
+  {
+    image: facilityDining,
+    title: "Comedor",
+    description: "Alimentación nutritiva y balanceada",
   },
 ];
 
@@ -43,20 +43,20 @@ const FacilitiesSection = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   return (
-    <section id="instalaciones" className="section-padding bg-background">
+    <section id="instalaciones" className="section-padding bg-card">
       <div className="container-narrow mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
           <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">
             Nuestras Instalaciones
           </span>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-navy mb-6">
             Un espacio diseñado para tu bienestar
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Contamos con instalaciones premium en Cuernavaca: habitaciones compartidas para
-            fomentar la hermandad, alberca, gimnasio, jardines amplios y áreas de relajación
-            para una estancia cómoda y motivadora.
+            Instalaciones premium en Cuernavaca con alberca, jardines amplios, capilla, 
+            cancha de usos múltiples y habitaciones con baño privado para una estancia 
+            cómoda y motivadora.
           </p>
         </div>
 
@@ -75,7 +75,7 @@ const FacilitiesSection = () => {
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
                 <h3 className="font-display text-xl font-semibold text-white mb-1">
                   {facility.title}
@@ -89,17 +89,17 @@ const FacilitiesSection = () => {
         {/* Features List */}
         <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
-            { icon: "🏊", text: "Alberca climatizada" },
-            { icon: "🏋️", text: "Gimnasio equipado" },
-            { icon: "🌴", text: "Jardines tropicales" },
-            { icon: "🛏️", text: "Habitaciones cómodas" },
+            { icon: "🏊", text: "Alberca" },
+            { icon: "🌴", text: "Jardines amplios" },
+            { icon: "⛪", text: "Capilla" },
+            { icon: "🛏️", text: "Habitaciones con baño" },
           ].map((feature, index) => (
             <div
               key={index}
-              className="flex items-center gap-4 bg-secondary/50 rounded-xl p-4"
+              className="flex items-center gap-4 bg-accent/10 rounded-xl p-4 border border-accent/20"
             >
               <span className="text-3xl">{feature.icon}</span>
-              <span className="font-medium text-foreground">{feature.text}</span>
+              <span className="font-medium text-navy">{feature.text}</span>
             </div>
           ))}
         </div>
