@@ -1,73 +1,65 @@
-# Welcome to your Lovable project
+# Bienestar Bugambilia
 
-## Project info
+Landing page de una clínica residencial de rehabilitación y salud mental en Cuernavaca, Morelos. Presenta el tratamiento, las instalaciones y el programa de 35 días, y convierte a los visitantes en prospectos con un formulario que los lleva a WhatsApp. Está pensada para familias que buscan un centro de tratamiento y llegan desde buscadores. **En producción.**
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Funcionalidades principales
 
-## How can I edit this code?
+- **Página única** con portada, tratamiento, instalaciones, programa y contacto, más un encabezado con navegación por secciones.
+- **Tratamiento:** detalle de lo que incluye el programa residencial (terapias, valoraciones médicas y psiquiátricas, estimulación magnética, capacidad y seguridad).
+- **Instalaciones:** galería de las áreas de la clínica (alberca, jardines, habitaciones, capilla, cancha de usos múltiples y comedor).
+- **Captación de prospectos:** el formulario de contacto arma un mensaje con los datos de la persona y abre una conversación de WhatsApp con la clínica; también hay botones directos de contacto en la portada y en la sección de precio.
+- **SEO:** idioma `es`, título y descripción orientados a la búsqueda local, URL canónica, Open Graph, Twitter Card y `robots.txt`.
+- **Diseño responsivo** con componentes shadcn/ui.
 
-There are several ways of editing your application.
+## Capturas
 
-**Use Lovable**
+<!-- Agrega aquí tus imágenes, por ejemplo: ![Portada](docs/capturas/portada.png) -->
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+_Pendiente._
 
-Changes made via Lovable will be committed automatically to this repo.
+## Stack
 
-**Use your preferred IDE**
+| Capa | Tecnología |
+|---|---|
+| Framework | React 18.3, TypeScript 5.8, React Router 6.30 |
+| Build | Vite 5.4 con `@vitejs/plugin-react-swc` |
+| Estilos y UI | Tailwind CSS 3.4, shadcn/ui (Radix UI), Lucide |
+| Datos | TanStack Query 5 |
+| Pruebas | Vitest 3 con Testing Library y jsdom |
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Arquitectura
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Aplicación de una sola página sin backend:
 
-Follow these steps:
+- `src/pages/Index.tsx` compone la landing con una sección por componente: `HeroSection`, `TreatmentSection`, `FacilitiesSection`, `PricingSection` y `ContactSection` (más `Header` y `Footer`).
+- `src/components/ui/` contiene los componentes base de shadcn/ui.
+- El contacto no guarda datos: `ContactSection` construye la URL de WhatsApp con el mensaje y la abre en una pestaña nueva.
+- `index.html` concentra los metadatos de SEO.
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## Instalación y ejecución
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+Requisitos: Node.js 18 o superior y npm.
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+git clone https://github.com/LDanielMC/bienestar-bugambilia.git
+cd bienestar-bugambilia
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+| Comando | Qué hace |
+|---|---|
+| `npm run dev` | Servidor de desarrollo con recarga en caliente |
+| `npm run build` | Compila para producción en `dist/` |
+| `npm run preview` | Sirve la compilación para revisarla |
+| `npm run lint` | Revisa el código con ESLint |
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+El proyecto no usa variables de entorno.
 
-**Use GitHub Codespaces**
+## Pruebas
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```bash
+npm test    # vitest run
+```
 
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Vitest y Testing Library están configurados, pero por ahora solo existe una prueba de ejemplo (`src/test/example.test.ts`).
